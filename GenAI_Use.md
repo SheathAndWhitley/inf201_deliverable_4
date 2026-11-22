@@ -2,9 +2,9 @@
 
 ## Tools used
 
-| Tool                            | Model           | Used for                                                                          |
-| ------------------------------- | --------------- | --------------------------------------------------------------------------------- |
-| GitHub Copilot (VS Code)        | Not recorded    | Reviewing the requirements, our implementation and tests, suggesting corrections |
+| Tool                            | Model           | Used for                                                                           |
+| ------------------------------- | --------------- | ---------------------------------------------------------------------------------- |
+| GitHub Copilot (VS Code)        | Not recorded    | Reviewing the requirements, our implementation and tests, suggesting corrections   |
 | Claude Code (VS Code extension) | Claude Opus 5.5 | Checking the hand-in against the assignment, preparing the notebook and repo files |
 
 ## Summary of use
@@ -39,27 +39,6 @@ files. It:
 - Exported the notebook to PDF with `nbconvert` (webpdf), renamed the assignment PDF to
   `deliverable_4_assignment.pdf` so the two PDFs would not be mixed up, and committed the files.
 - Tried to push to GitHub, which failed because the session had no GitHub login, so we pushed ourselves.
-
-### 4. Rewriting the notebook (Claude Code, 22 Nov 2026)
-
-We were unsure whether our notebook had the right format, since it mostly repeated the assignment
-text with two test cells. We deleted it and asked Claude Code to make a new one in the format it
-thought was right. It looked at our Deliverable 3 notebook and used the same format:
-
-- A header with group members, the repository link and a table of the modules.
-- For each class: its attributes and methods, a short description of our design choices,
-  example cells (creating objects, invalid input, conversions/arithmetic, comparisons and sorting)
-  and the `pytest` output.
-- A closing section pointing to the repository, `git_log.txt`, `requirements.txt`, this file and the video.
-
-It also installed `ipykernel` in our `.venv` so the notebook runs on the project's environment
-(and updated `requirements.txt`), exported the new notebook to `deliverable_4.pdf`, checked the
-PDF and fixed some headings that ran together in it, and wrote `README.md`.
-
-### 5. This file
-
-Claude Code wrote this file from the conversation. Section 1 is based on our own earlier description
-of how we used Copilot, since Claude had no record of that.
 
 ## Reflection
 
