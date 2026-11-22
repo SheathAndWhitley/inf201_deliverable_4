@@ -2,39 +2,68 @@
 
 ## Tools used
 
-| Tool                            | Model           | Used for                                                                    |
-| ------------------------------- | --------------- | --------------------------------------------------------------------------- |
-| GitHub Copilot (VS Code)        | *TODO*          | Reviewing the requirements, the implementation and the tests                |
-| Claude Code (VS Code extension) | Claude Opus 5.5 | Checking the hand-in against the assignment, preparing the repository files |
+| Tool                            | Model           | Used for                                                                          |
+| ------------------------------- | --------------- | --------------------------------------------------------------------------------- |
+| GitHub Copilot (VS Code)        | Not recorded    | Reviewing the requirements, our implementation and tests, suggesting corrections |
+| Claude Code (VS Code extension) | Claude Opus 5.5 | Checking the hand-in against the assignment, preparing the notebook and repo files |
 
 ## Summary of use
 
-### 1. Writing the code (Tasks 1–2)
+### 1. Writing and reviewing the code (Tasks 1–2)
 
-*TODO – describe how (or whether) AI was used while writing `temperature.py`, `fraction.py`
-and the two test files.*
-
+We wrote `temperature.py`, `fraction.py`, `test_temperature.py` and `test_fraction.py` ourselves.
 GitHub Copilot was used to review the deliverable requirements, inspect the implementation and tests,
-identify missing submission files and suggest corrections. We checked its suggestions by running the
-test suite locally.
+find missing submission files and suggest corrections. We checked its suggestions by running the
+test suite locally before keeping them.
 
 ### 2. Final check before hand-in (Claude Code, 22 Nov 2026)
 
-We asked Claude Code to compare the repository with the assignment (`deliverable_4_assignment.pdf`)
-and tell us what was missing. It read the classes, tests and notebook, ran the tests (37 passed) and
-listed the missing hand-in items: `requirements.txt`, `git_log.txt`, a PDF of the notebook, the
-uncommitted notebook and the video. It did not change `temperature.py`, `fraction.py` or the test files.
+We asked Claude Code: *"what needs to be done before i deliver?"* It:
 
-### 3. Preparing the repository for hand-in (Claude Code, 22 Nov 2026)
+- Read the assignment (`deliverable_4_assignment.pdf`), both classes, both test files and the notebook,
+  and compared them with each requirement in Task 1 and Task 2.
+- Ran the test suite with our virtual environment: all 37 tests passed (30 for `Temperature`,
+  7 for `Fraction`). It found no problems in the classes or tests.
+- Listed the missing hand-in items: `requirements.txt`, `git_log.txt`, a PDF of the notebook,
+  committing the notebook, and the video.
+- Pointed out that the test output in the notebook contained terminal colour codes that would show
+  up as garbage text in the PDF, and that our GenAI section only mentioned Copilot.
 
-We then asked Claude Code to fix what it could. It:
+### 3. Fixing the hand-in items (Claude Code, 22 Nov 2026)
 
-- Generated `requirements.txt` from our `.venv` (`pip freeze`) and added `ipykernel` so the notebook
-  runs on the project's own environment.
-- Rewrote `deliverable_4.ipynb` in the same format as our Deliverable 3 notebook: a short design
-  description of each class, examples of each class in use and the `pytest` output. It turned off
-  pytest's coloured output so the PDF doesn't show colour codes.
-- Exported the notebook to `deliverable_4.pdf` (nbconvert webpdf).
-- Wrote `README.md` and drafted this file. The parts about our own earlier work are marked *TODO*,
-  since the assistant had no record of them.
-- Generated `git_log.txt`.
+We asked it to fix the issues it could. It did not change `temperature.py`, `fraction.py` or the test
+files. It:
+
+- Generated `requirements.txt` from our `.venv` with `pip freeze`.
+- Added `--color=no` to the pytest commands in the notebook and re-ran it.
+- Exported the notebook to PDF with `nbconvert` (webpdf), renamed the assignment PDF to
+  `deliverable_4_assignment.pdf` so the two PDFs would not be mixed up, and committed the files.
+- Tried to push to GitHub, which failed because the session had no GitHub login, so we pushed ourselves.
+
+### 4. Rewriting the notebook (Claude Code, 22 Nov 2026)
+
+We were unsure whether our notebook had the right format, since it mostly repeated the assignment
+text with two test cells. We deleted it and asked Claude Code to make a new one in the format it
+thought was right. It looked at our Deliverable 3 notebook and used the same format:
+
+- A header with group members, the repository link and a table of the modules.
+- For each class: its attributes and methods, a short description of our design choices,
+  example cells (creating objects, invalid input, conversions/arithmetic, comparisons and sorting)
+  and the `pytest` output.
+- A closing section pointing to the repository, `git_log.txt`, `requirements.txt`, this file and the video.
+
+It also installed `ipykernel` in our `.venv` so the notebook runs on the project's environment
+(and updated `requirements.txt`), exported the new notebook to `deliverable_4.pdf`, checked the
+PDF and fixed some headings that ran together in it, and wrote `README.md`.
+
+### 5. This file
+
+Claude Code wrote this file from the conversation. Section 1 is based on our own earlier description
+of how we used Copilot, since Claude had no record of that.
+
+## Reflection
+
+The AI tools were most useful for checking the hand-in against the assignment and doing repetitive
+setup work (requirements, PDF export, git log). We wrote the code and tests ourselves and used AI
+to review them; everything it suggested was checked by running the tests and reading the output
+before we kept it.
