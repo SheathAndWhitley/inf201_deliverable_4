@@ -1,0 +1,7 @@
+* d87f32d - Kristian Sheath, 23 seconds ago : Rewrite notebook as solution presentation, add README and GenAI_Use
+* 811f713 - Kristian Sheath, 25 minutes ago : Add notebook, notebook PDF and requirements.txt
+* 2b205c0 - Philip Schou Whitley, 52 minutes ago : added test_fractions
+* 7782ecf - Kristian Sheath, 53 minutes ago : create fraction class
+* 69a4d75 - Philip Schou Whitley, 53 minutes ago : Added temp test
+* 7a82a6f - Kristian Sheath, 55 minutes ago : add temp class and file
+* 8923e68 - Kristian Sheath, 58 minutes ago : Initial commit
